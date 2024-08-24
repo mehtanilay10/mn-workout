@@ -17,7 +17,6 @@ export async function generateStaticParams() {
 
 // Page component
 export default function Page(props: ExcercisePageProps) {
-	// return <>{JSON.stringify(props)}</>;
 	const filePath = path.join(process.cwd(), "public", "workouts", `data.json`);
 	const jsonData: ExerciseData[] = JSON.parse(fs.readFileSync(filePath, "utf8"));
 
