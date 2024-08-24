@@ -1,0 +1,44 @@
+[
+    {
+        "name": "W1 Excercise 1",
+        "exerciseID": 1,
+        "workoutID": 1,
+        "time": 60,
+        "image": "excercise-1.gif",
+        "isFirst": true
+    },
+    {
+        "name": "W1 Excercise 2",
+        "workoutID": 1,
+        "exerciseID": 2,
+        "image": "excercise-2.gif",
+        "time": 3,
+        "isReversable": true
+    },
+    {
+        "name": "W1 Excercise 3",
+        "workoutID": 1,
+        "exerciseID": 3,
+        "image": "excercise-2.gif",
+        "time": 3,
+        "isReversable": true,
+        "isLast": true
+    },
+    {
+        "name": "W2 Excercise 1",
+        "workoutID": 2,
+        "exerciseID": 1,
+        "time": 6,
+        "image": "excercise-1.gif",
+        "isReversable": true,
+        "isFirst": true
+    },
+    {
+        "name": "W2 Excercise 2",
+        "workoutID": 2,
+        "exerciseID": 2,
+        "image": "excercise-2.gif",
+        "time": 3,
+        "isLast": true
+    }
+]
