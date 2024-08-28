@@ -1,12 +1,11 @@
 import { ExcercisePageProps, ExerciseData } from "@/types/types";
 import fs from "fs";
 import path from "path";
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import Exercise from "@/app/components/Exercise";
+import Exercise from "@/components/Exercise";
 
 export async function generateStaticParams() {
-	const filePath = path.join(process.cwd(), "public", "workouts", `data.json`);
+	const filePath = path.join(process.cwd(), "public", "json", `data.json`);
 	const jsonData: ExerciseData[] = JSON.parse(fs.readFileSync(filePath, "utf8"));
 
 	return jsonData.map((e) => ({
@@ -17,7 +16,7 @@ export async function generateStaticParams() {
 
 // Page component
 export default function Page(props: ExcercisePageProps) {
-	const filePath = path.join(process.cwd(), "public", "workouts", `data.json`);
+	const filePath = path.join(process.cwd(), "public", "json", `data.json`);
 	const jsonData: ExerciseData[] = JSON.parse(fs.readFileSync(filePath, "utf8"));
 
 	// Find the page based on the slug
