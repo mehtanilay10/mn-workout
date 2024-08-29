@@ -84,10 +84,45 @@ export const SmallLinkButton = styled(Link)`
 	}
 `;
 
+// #Region: Start: Overlay
+
+export const OverlayContainer = styled.div`
+	position: relative;
+`;
+
 export const Image = styled.img`
 	border: 1px solid #dfdfdf;
 	margin-top: 10px;
+	width: 100%;
 `;
+
+export const Overlay = styled.div<{ shouldShow?: boolean }>`
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 40%;
+	opacity: ${(props) => (props.shouldShow ? 0.95 : 0)};
+	transition: 0.5s ease;
+	background: linear-gradient(#dfdfdf 0%, #fff 100%);
+	width: 100%;
+	padding-right: 1px;
+`;
+
+export const OverlayText = styled.div`
+	color: #0070f3;
+	font-size: 24px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+`;
+
+// #Region: End: Overlay
 
 // #Region: Start: Grid
 

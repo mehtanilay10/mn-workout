@@ -1,0 +1,27 @@
+{
+    "name": "MN Exercise App",
+    "short_name": "MN Exercise App",
+    "icons": [
+        {
+            "src": "/icons/android-chrome-48x48.png",
+            "sizes": "48x48",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icons/android-chrome-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/apple-touch-icon.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/",
+    "theme_color": "#0066b8",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "orientation": "portrait"
+}

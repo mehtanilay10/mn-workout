@@ -6,51 +6,57 @@ import { useRouter } from "next/navigation";
 import ProgressBar from "./ProgressBar";
 import { speak } from "@/utils/utils";
 import { Button, Heading, LeftColumn, MainWrapper, RightColumn, Row, SmallLinkButton, Image, Icon } from "@/styles/style";
+import ImageContainer from "./ImageContainer";
 
 export default function Exercise(props: ExerciseData) {
 	const [countdown, setCountdown] = React.useState(props.time);
 	const [isPause, setIsPause] = React.useState(false);
-	const [intervalRef, setIntervalRef] = React.useState<NodeJS.Timeout>();
+	const [overlayText, setOverlayText] = React.useState("");
+	const intervalRef = React.useRef<NodeJS.Timeout>();
 	const router = useRouter();
 
 	React.useEffect(() => {
 		speak(props.isFirst ? props.name : `Next excesize is ${props.name}.`);
+		setOverlayText(`Prepare for ${props.name}`);
 		setTimeout(() => {
-			setIntervalRef(
-				setInterval(() => {
+			setOverlayText("");
+			intervalRef.current = setInterval(() => {
+				if (!isPause) {
 					setCountdown((t) => t - 1);
-				}, 1000)
-			);
+				}
+			}, 1000);
 		}, 3000);
 
-		return clearInterval(intervalRef);
+		return clearInterval(intervalRef.current);
 	}, []);
 
 	React.useEffect(() => {
 		if (countdown <= 0) {
-			clearInterval(intervalRef);
+			clearInterval(intervalRef.current);
 			if (!props.isLast) {
 				router.push((props.exerciseID + 1).toString());
 			} else {
-				router.push("/");
+				speak("Congratulations for completing workout. See you tommorow.");
+				setTimeout(() => {
+					router.push("/");
+				}, 3000);
 			}
 		}
 	}, [countdown]);
 
 	const pauseTimer = () => {
 		speak("Pause");
+		setOverlayText("Pause");
 		setIsPause(true);
-		clearInterval(intervalRef);
+		clearInterval(intervalRef.current);
 	};
 
 	const resumeTimer = () => {
 		speak("Resume");
 		setIsPause(false);
-		setIntervalRef(
-			setInterval(() => {
-				setCountdown((t) => t - 1);
-			}, 1000)
-		);
+		intervalRef.current = setInterval(() => {
+			setCountdown((t) => t - 1);
+		}, 1000);
 	};
 
 	return (
@@ -85,7 +91,7 @@ export default function Exercise(props: ExerciseData) {
 					<ProgressBar remainingTime={countdown} totalTime={props.time} />
 				</RightColumn>
 			</Row>
-			<Image src={`/gifs/${props.image}`} alt={props.name} width={"500px"} />
+			<ImageContainer imageName={props.image} title={props.name} overlayText={overlayText} />
 		</MainWrapper>
 	);
 }
