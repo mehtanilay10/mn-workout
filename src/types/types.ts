@@ -9,11 +9,11 @@ export interface ExerciseData {
 	isFirst?: boolean;
 }
 
-export interface ExcerciseParams {
+export interface ExerciseParams {
 	workoutID: string;
 	exerciseID: string;
 }
 
-export interface ExcercisePageProps {
-	params: ExcerciseParams;
+export interface ExercisePageProps {
+	params: ExerciseParams;
 }

@@ -40,7 +40,7 @@ export const LinkButton = styled(Link)`
 	}
 `;
 
-export const Button = styled.div`
+export const Button = styled.div<{ disabled?: boolean }>`
 	text-decoration: none;
 	cursor: pointer;
 	font-size: 14px;
@@ -49,10 +49,11 @@ export const Button = styled.div`
 	border: 1px solid #aaa;
 	text-align: center;
 	display: block;
-	background-color: #fdfdfd;
+	background-color: ${(props) => (props.disabled ? "#dfdfdf" : "#fdfdfd")};
 	width: max-content;
 	margin-top: 48px;
 	font-weight: bold;
+	pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
 
 	img {
 		margin-right: 3px;
@@ -90,10 +91,11 @@ export const OverlayContainer = styled.div`
 	position: relative;
 `;
 
-export const Image = styled.img`
+export const Image = styled.img<{ isReverse: boolean }>`
 	border: 1px solid #dfdfdf;
 	margin-top: 10px;
 	width: 100%;
+	transform: ${(props) => (props.isReverse ? "scaleX(-1)" : "scaleX(1)")};
 `;
 
 export const Overlay = styled.div<{ shouldShow?: boolean }>`

@@ -8,7 +8,6 @@ interface ProgressBar {
 
 const ProgressBar = ({ totalTime, remainingTime }: ProgressBar) => {
 	const completed = (totalTime - remainingTime) / totalTime;
-	console.log(completed);
 	const radius = 35;
 	const circumference = 2 * Math.PI * radius;
 	const offset = circumference - completed * circumference;

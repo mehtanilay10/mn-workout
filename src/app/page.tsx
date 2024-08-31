@@ -1,10 +1,10 @@
 import { ExerciseList } from "@/components/ExerciseList";
-import { ExcercisePageProps, ExerciseData } from "@/types/types";
+import { ExercisePageProps, ExerciseData } from "@/types/types";
 import fs from "fs";
 import path from "path";
 
 // Page component
-export default function Page(props: ExcercisePageProps) {
+export default function Page(props: ExercisePageProps) {
 	const filePath = path.join(process.cwd(), "public", "json", `data.json`);
 	const jsonData: ExerciseData[] = JSON.parse(fs.readFileSync(filePath, "utf8"));
 

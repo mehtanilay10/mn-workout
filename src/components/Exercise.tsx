@@ -12,14 +12,21 @@ export default function Exercise(props: ExerciseData) {
 	const [countdown, setCountdown] = React.useState(props.time);
 	const [isPause, setIsPause] = React.useState(false);
 	const [overlayText, setOverlayText] = React.useState("");
+	const [isReversed, setIsReversed] = React.useState(false);
 	const intervalRef = React.useRef<NodeJS.Timeout>();
 	const router = useRouter();
 
 	React.useEffect(() => {
-		speak(props.isFirst ? props.name : `Next excesize is ${props.name}.`);
-		setOverlayText(`Prepare for ${props.name}`);
+		const isBreak = props.name.toLowerCase() === "break";
+		if (isBreak) {
+			speak("Take a break.");
+			setOverlayText("Break");
+		} else {
+			speak(props.isFirst ? `Get ready for ${props.name}` : `Next exercise is ${props.name}.`);
+			setOverlayText(`Prepare for ${props.name}`);
+		}
 		setTimeout(() => {
-			setOverlayText("");
+			setOverlayText(isBreak ? "Break" : "");
 			intervalRef.current = setInterval(() => {
 				if (!isPause) {
 					setCountdown((t) => t - 1);
@@ -33,6 +40,22 @@ export default function Exercise(props: ExerciseData) {
 	React.useEffect(() => {
 		if (countdown <= 0) {
 			clearInterval(intervalRef.current);
+			if (props.isReversable && !isReversed) {
+				setIsReversed(true);
+				speak("Change side");
+				setOverlayText("Change side");
+				setCountdown(props.time);
+				setTimeout(() => {
+					setOverlayText("");
+					intervalRef.current = setInterval(() => {
+						if (!isPause) {
+							setCountdown((t) => t - 1);
+						}
+					}, 1000);
+				}, 3000);
+				return;
+			}
+
 			if (!props.isLast) {
 				router.push((props.exerciseID + 1).toString());
 			} else {
@@ -54,6 +77,7 @@ export default function Exercise(props: ExerciseData) {
 	const resumeTimer = () => {
 		speak("Resume");
 		setIsPause(false);
+		setOverlayText("");
 		intervalRef.current = setInterval(() => {
 			setCountdown((t) => t - 1);
 		}, 1000);
@@ -81,7 +105,7 @@ export default function Exercise(props: ExerciseData) {
 							<Icon src="/svgs/resume.svg" /> Resume
 						</Button>
 					) : (
-						<Button onClick={() => pauseTimer()}>
+						<Button onClick={() => pauseTimer()} disabled={overlayText.length > 0}>
 							<Icon src="/svgs/pause.svg" />
 							Pause
 						</Button>
@@ -91,7 +115,7 @@ export default function Exercise(props: ExerciseData) {
 					<ProgressBar remainingTime={countdown} totalTime={props.time} />
 				</RightColumn>
 			</Row>
-			<ImageContainer imageName={props.image} title={props.name} overlayText={overlayText} />
+			<ImageContainer imageName={props.image} title={props.name} overlayText={overlayText} isReverse={isReversed} />
 		</MainWrapper>
 	);
 }

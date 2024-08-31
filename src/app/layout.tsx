@@ -7,13 +7,13 @@ const APP_TITLE_TEMPLATE = "%s - MN Workout App";
 const APP_DESCRIPTION = "Workout app by MN for MN!";
 
 export const metadata: Metadata = {
+    manifest: "/manifest.json",
 	applicationName: APP_NAME,
 	title: {
 		default: APP_DEFAULT_TITLE,
 		template: APP_TITLE_TEMPLATE,
 	},
 	description: APP_DESCRIPTION,
-	manifest: "/manifest.json",
 	appleWebApp: {
 		capable: true,
 		statusBarStyle: "default",

@@ -1,44 +1,88 @@
 [
     {
-        "name": "W1 Excercise 1",
+        "name": "Demo Exercise 1",
         "exerciseID": 1,
-        "workoutID": 1,
+        "workoutID": 2,
         "time": 60,
-        "image": "excercise-1.gif",
+        "image": "demo-exercise1.gif",
         "isFirst": true
     },
     {
-        "name": "W1 Excercise 2",
-        "workoutID": 1,
+        "name": "Demo Exercise 2",
+        "workoutID": 2,
         "exerciseID": 2,
-        "image": "excercise-2.gif",
+        "image": "demo-exercise2.gif",
         "time": 3,
         "isReversable": true
     },
     {
-        "name": "W1 Excercise 3",
-        "workoutID": 1,
+        "name": "Demo Exercise 3",
+        "workoutID": 2,
         "exerciseID": 3,
-        "image": "excercise-2.gif",
+        "image": "demo-exercise2.gif",
         "time": 3,
-        "isReversable": true,
+        "isReversable": true
+    },
+    {
+        "name": "Demo Exercise 4",
+        "workoutID": 2,
+        "exerciseID": 4,
+        "time": 6,
+        "image": "demo-exercise1.gif",
+        "isReversable": true
+    },
+    {
+        "name": "Demo Exercise 5",
+        "workoutID": 2,
+        "exerciseID": 5,
+        "image": "demo-exercise2.gif",
+        "time": 3,
         "isLast": true
     },
     {
-        "name": "W2 Excercise 1",
-        "workoutID": 2,
+        "name": "Front Kick",
+        "workoutID": 1,
         "exerciseID": 1,
-        "time": 6,
-        "image": "excercise-1.gif",
-        "isReversable": true,
+        "image": "001_front_kicks.gif",
+        "time": 30,
         "isFirst": true
     },
     {
-        "name": "W2 Excercise 2",
-        "workoutID": 2,
+        "name": "Extended Arm Circle",
+        "workoutID": 1,
         "exerciseID": 2,
-        "image": "excercise-2.gif",
-        "time": 3,
+        "image": "002_extended_arm_circles.gif",
+        "time": 30,
+        "isReversable": true
+    },
+    {
+        "name": "Windmill",
+        "workoutID": 1,
+        "exerciseID": 3,
+        "image": "003_windmill.gif",
+        "time": 30
+    },
+    {
+        "name": "Break",
+        "workoutID": 1,
+        "exerciseID": 4,
+        "image": "000_break.gif",
+        "time": 30
+    },
+    {
+        "name": "Pushup",
+        "workoutID": 1,
+        "exerciseID": 5,
+        "image": "004_pushup.gif",
+        "time": 30
+    },
+    {
+        "name": "Easy Lizard",
+        "workoutID": 1,
+        "exerciseID": 6,
+        "image": "005_easy_lizard.gif",
+        "time": 30,
+        "isReversable": true,
         "isLast": true
     }
 ]

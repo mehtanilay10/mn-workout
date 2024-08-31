@@ -8,5 +8,6 @@ export const speak = (message: string) => {
 		msg.voice = voice[0];
 	}
 
+	window.speechSynthesis.cancel();
 	window.speechSynthesis.speak(msg);
 };

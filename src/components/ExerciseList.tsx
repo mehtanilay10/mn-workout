@@ -2,11 +2,11 @@
 
 import { LinkButton, MainWrapper } from "@/styles/style";
 
-interface ExcerciseListProps {
+interface ExerciseListProps {
 	workoutIDs: string[];
 }
 
-export const ExerciseList = (props: ExcerciseListProps) => (
+export const ExerciseList = (props: ExerciseListProps) => (
 	<MainWrapper>
 		{props.workoutIDs.map((x) => (
 			<LinkButton key={x} href={`workout/${x}/exercise/1`}>
