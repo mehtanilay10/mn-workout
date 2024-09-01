@@ -8,16 +8,16 @@ interface ProgressBar {
 
 const ProgressBar = ({ totalTime, remainingTime }: ProgressBar) => {
 	const completed = (totalTime - remainingTime) / totalTime;
-	const radius = 35;
+	const radius = 60;
 	const circumference = 2 * Math.PI * radius;
 	const offset = circumference - completed * circumference;
 
 	return (
 		<CircleContainer>
-			<Circle viewBox="0 0 100 100">
-				<CircleBackground cx="50" cy="50" r={radius} />
-				<CircleProgress cx="50" cy="50" r={radius} strokeDasharray={circumference} strokeDashoffset={offset} />
-				<CircleText x="50" y="-48">
+			<Circle viewBox="0 0 150 150">
+				<CircleBackground cx="75" cy="75" r={radius} />
+				<CircleProgress cx="75" cy="75" r={radius} strokeDasharray={circumference} strokeDashoffset={offset} />
+				<CircleText x="75" y="-75">
 					{remainingTime}s
 				</CircleText>
 			</Circle>

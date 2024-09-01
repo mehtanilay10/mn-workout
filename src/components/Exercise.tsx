@@ -89,29 +89,33 @@ export default function Exercise(props: ExerciseData) {
 			<Row>
 				<LeftColumn>
 					<Heading>{props.name}</Heading>
-					{!props.isFirst && (
-						<SmallLinkButton href={(props.exerciseID - 1).toString()}>
-							<Icon src="/svgs/previous.svg" /> Previous
-						</SmallLinkButton>
-					)}
-					{!props.isLast && (
-						<SmallLinkButton href={(props.exerciseID + 1).toString()}>
-							Next <Icon src="/svgs/next.svg" />
-						</SmallLinkButton>
-					)}
+					<Row>
+						<LeftColumn>
+							{!props.isFirst && (
+								<SmallLinkButton href={(props.exerciseID - 1).toString()}>
+									<Icon src="/svgs/previous.svg" /> Previous
+								</SmallLinkButton>
+							)}
+							{!props.isLast && (
+								<SmallLinkButton href={(props.exerciseID + 1).toString()}>
+									Next <Icon src="/svgs/next.svg" />
+								</SmallLinkButton>
+							)}
+						</LeftColumn>
+						<RightColumn>
+							{isPause ? (
+								<Button onClick={() => resumeTimer()}>
+									<Icon src="/svgs/resume.svg" /> Resume
+								</Button>
+							) : (
+								<Button onClick={() => pauseTimer()} disabled={overlayText.length > 0}>
+									<Icon src="/svgs/pause.svg" />
+									Pause
+								</Button>
+							)}
+						</RightColumn>
+					</Row>
 				</LeftColumn>
-				<RightColumn>
-					{isPause ? (
-						<Button onClick={() => resumeTimer()}>
-							<Icon src="/svgs/resume.svg" /> Resume
-						</Button>
-					) : (
-						<Button onClick={() => pauseTimer()} disabled={overlayText.length > 0}>
-							<Icon src="/svgs/pause.svg" />
-							Pause
-						</Button>
-					)}
-				</RightColumn>
 				<RightColumn>
 					<ProgressBar remainingTime={countdown} totalTime={props.time} />
 				</RightColumn>

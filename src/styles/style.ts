@@ -4,7 +4,7 @@ import Link from "next/link";
 export const MainWrapper = styled.div`
 	max-width: 500px;
 	margin: 0 auto;
-	padding: 20px;
+	padding: 10px;
 	font-family: "arial";
 	background-color: #dfdfdf;
 `;
@@ -48,10 +48,9 @@ export const Button = styled.div<{ disabled?: boolean }>`
 	padding: 10px;
 	border: 1px solid #aaa;
 	text-align: center;
-	display: block;
 	background-color: ${(props) => (props.disabled ? "#dfdfdf" : "#fdfdfd")};
 	width: max-content;
-	margin-top: 48px;
+	float: right;
 	font-weight: bold;
 	pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
 
@@ -100,7 +99,7 @@ export const Image = styled.img<{ isReverse: boolean }>`
 
 export const Video = styled.video<{ isReverse: boolean }>`
 	border: 1px solid #dfdfdf;
-	margin-top: 10px;
+	margin-top: 80px;
 	width: 100%;
 	transform: ${(props) => (props.isReverse ? "scaleX(-1)" : "scaleX(1)")};
 `;
@@ -129,6 +128,7 @@ export const OverlayText = styled.div`
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	text-align: center;
+	width: 100%;
 `;
 
 // #Region: End: Overlay
@@ -185,17 +185,11 @@ export const CircleProgress = styled.circle`
 
 export const CircleText = styled.text`
 	fill: #0070f3;
-	font-size: 22px;
+	font-size: 30px;
 	font-weight: bold;
 	text-anchor: middle;
 	dominant-baseline: middle;
 	transform: rotate(90deg);
-
-	span {
-		fill: #0070f3;
-		transform: rotate(90deg);
-		font-size: 20px;
-	}
 `;
 
 // #Endregion: Progress bar
