@@ -4,14 +4,14 @@
         "exerciseID": 1,
         "workoutID": 2,
         "time": 60,
-        "image": "demo-exercise1.gif",
+        "video": "demo-exercise1.mp4",
         "isFirst": true
     },
     {
         "name": "Demo Exercise 2",
         "workoutID": 2,
         "exerciseID": 2,
-        "image": "demo-exercise2.gif",
+        "video": "demo-exercise2.mp4",
         "time": 3,
         "isReversable": true
     },
@@ -19,7 +19,7 @@
         "name": "Demo Exercise 3",
         "workoutID": 2,
         "exerciseID": 3,
-        "image": "demo-exercise2.gif",
+        "video": "demo-exercise2.mp4",
         "time": 3,
         "isReversable": true
     },
@@ -28,14 +28,14 @@
         "workoutID": 2,
         "exerciseID": 4,
         "time": 6,
-        "image": "demo-exercise1.gif",
+        "video": "demo-exercise1.mp4",
         "isReversable": true
     },
     {
         "name": "Demo Exercise 5",
         "workoutID": 2,
         "exerciseID": 5,
-        "image": "demo-exercise2.gif",
+        "video": "demo-exercise2.mp4",
         "time": 3,
         "isLast": true
     },
@@ -43,7 +43,7 @@
         "name": "Front Kick",
         "workoutID": 1,
         "exerciseID": 1,
-        "image": "001_front_kicks.gif",
+        "video": "001_front_kicks.mp4",
         "time": 30,
         "isFirst": true
     },
@@ -51,7 +51,7 @@
         "name": "Extended Arm Circle",
         "workoutID": 1,
         "exerciseID": 2,
-        "image": "002_extended_arm_circles.gif",
+        "video": "002_extended_arm_circles.mp4",
         "time": 30,
         "isReversable": true
     },
@@ -59,28 +59,28 @@
         "name": "Windmill",
         "workoutID": 1,
         "exerciseID": 3,
-        "image": "003_windmill.gif",
+        "video": "003_windmill.mp4",
         "time": 30
     },
     {
         "name": "Break",
         "workoutID": 1,
         "exerciseID": 4,
-        "image": "000_break.gif",
+        "video": "000_break.mp4",
         "time": 30
     },
     {
         "name": "Pushup",
         "workoutID": 1,
         "exerciseID": 5,
-        "image": "004_pushup.gif",
+        "video": "004_pushup.mp4",
         "time": 30
     },
     {
         "name": "Easy Lizard",
         "workoutID": 1,
         "exerciseID": 6,
-        "image": "005_easy_lizard.gif",
+        "video": "005_easy_lizard.mp4",
         "time": 30,
         "isReversable": true,
         "isLast": true

@@ -3,7 +3,7 @@ export interface ExerciseData {
 	workoutID: number;
 	exerciseID: number;
 	time: number;
-	image: string;
+	video: string;
 	isReversable?: boolean;
 	isLast?: boolean;
 	isFirst?: boolean;

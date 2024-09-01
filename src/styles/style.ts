@@ -98,6 +98,13 @@ export const Image = styled.img<{ isReverse: boolean }>`
 	transform: ${(props) => (props.isReverse ? "scaleX(-1)" : "scaleX(1)")};
 `;
 
+export const Video = styled.video<{ isReverse: boolean }>`
+	border: 1px solid #dfdfdf;
+	margin-top: 10px;
+	width: 100%;
+	transform: ${(props) => (props.isReverse ? "scaleX(-1)" : "scaleX(1)")};
+`;
+
 export const Overlay = styled.div<{ shouldShow?: boolean }>`
 	position: absolute;
 	top: 0;
