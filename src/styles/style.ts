@@ -13,6 +13,7 @@ export const Heading = styled.div`
 	font-size: 24px;
 	font-weight: bold;
 	padding-bottom: 20px;
+	text-transform: capitalize;
 `;
 
 export const Icon = styled.img`

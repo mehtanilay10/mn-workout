@@ -1,6 +1,6 @@
 {
-    "name": "MN Exercise App",
-    "short_name": "MN Exercise App",
+    "name": "MN Workout App",
+    "short_name": "MN Workout App",
     "icons": [
         {
             "src": "/icons/48x48.png",
@@ -21,6 +21,16 @@
         {
             "src": "/icons/144x144.png",
             "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/720x720.png",
+            "sizes": "720x720",
             "type": "image/png"
         }
     ],
