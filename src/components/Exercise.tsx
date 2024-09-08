@@ -8,6 +8,7 @@ import { speak } from "@/utils/utils";
 import { Button, Heading, LeftColumn, MainWrapper, RightColumn, Row, SmallLinkButton, Image, Icon } from "@/styles/style";
 // import ImageContainer from "./ImageContainer";
 import VideoContainer from "./VideoContainer";
+import ProgressLine from "./ProgressLine";
 
 export default function Exercise(props: ExerciseData) {
 	const [countdown, setCountdown] = React.useState(props.time);
@@ -120,6 +121,7 @@ export default function Exercise(props: ExerciseData) {
 					<ProgressBar remainingTime={countdown} totalTime={props.time} />
 				</RightColumn>
 			</Row>
+			<ProgressLine totalTime={props.totalTime} passedTime={props.passedTime} totalExercise={props.totalExercise} passedExercise={props.passedExercise} />
 			{/* <ImageContainer imageName={props.image} title={props.name} overlayText={overlayText} isReverse={isReversed} /> */}
 			<VideoContainer videoName={props.video} overlayText={overlayText} isReverse={isReversed} />
 		</MainWrapper>

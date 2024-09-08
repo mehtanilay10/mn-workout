@@ -194,3 +194,43 @@ export const CircleText = styled.text`
 `;
 
 // #Endregion: Progress bar
+
+// #Region: Progress Line
+
+export const BarContainer = styled.div`
+	height: 8px;
+	width: 100%;
+	background-color: #fafafa;
+	border-radius: 50px;
+	margin-top: 20px;
+`;
+
+export const BarFillter = styled.div<{ completed: number }>`
+	height: 100%;
+	width: ${(props) => props.completed}%;
+	background-color: #0070f3;
+	border-radius: inherit;
+	text-align: right;
+`;
+
+export const BarLabelLeft = styled.span`
+	padding-top: 3px;
+	font-size: 14px;
+	font-weight: bold;
+
+	span {
+		font-weight: normal;
+	}
+`;
+export const BarLabelRight = styled.span`
+	float: right;
+	padding-top: 3px;
+	font-size: 14px;
+	font-weight: bold;
+
+	span {
+		font-weight: normal;
+	}
+`;
+
+// #Endregion: Progress Line

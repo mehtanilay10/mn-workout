@@ -7,6 +7,10 @@ export interface ExerciseData {
 	isReversable?: boolean;
 	isLast?: boolean;
 	isFirst?: boolean;
+	totalTime: number;
+	passedTime: number;
+	totalExercise: number;
+	passedExercise: number;
 }
 
 export interface ExerciseParams {

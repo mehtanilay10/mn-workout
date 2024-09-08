@@ -20,11 +20,24 @@ export default function Page(props: ExercisePageProps) {
 	const jsonData: ExerciseData[] = JSON.parse(fs.readFileSync(filePath, "utf8"));
 
 	// Find the page based on the slug
-	const workout = jsonData.find((p) => p.exerciseID.toString() === props.params.exerciseID && p.workoutID.toString() === props.params.workoutID);
+	const workoutData = jsonData.filter((w) => w.workoutID.toString() === props.params.workoutID);
+	const exerciseData = workoutData.find((e) => e.exerciseID.toString() === props.params.exerciseID);
 
-	if (!workout) {
+	if (!exerciseData) {
 		notFound();
 	}
 
-	return <Exercise {...workout} />;
+	const totalExercise = workoutData.length;
+	let passedExercise = 0;
+	let totalTime = 0;
+	let passedTime = 0;
+	workoutData.forEach((e) => {
+		totalTime += (e.isReversable ? 2 : 1) * e.time;
+		if (e.exerciseID < Number(props.params.exerciseID)) {
+			passedTime += (e.isReversable ? 2 : 1) * e.time;
+			passedExercise++;
+		}
+	});
+
+	return <Exercise {...exerciseData} totalTime={totalTime} passedTime={passedTime} totalExercise={totalExercise} passedExercise={passedExercise} />;
 }
