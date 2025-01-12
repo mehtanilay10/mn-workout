@@ -87,8 +87,9 @@ export const SmallLinkButton = styled(Link)`
 
 // #Region: Start: Overlay
 
-export const OverlayContainer = styled.div`
+export const OverlayContainer = styled.div<{ isMobileView: boolean }>`
 	position: relative;
+	${(props) => !props.isMobileView && { marginLeft: "10px" }}
 `;
 
 export const Image = styled.img<{ isReverse: boolean }>`
@@ -98,9 +99,9 @@ export const Image = styled.img<{ isReverse: boolean }>`
 	transform: ${(props) => (props.isReverse ? "scaleX(-1)" : "scaleX(1)")};
 `;
 
-export const Video = styled.video<{ isReverse: boolean }>`
+export const Video = styled.video<{ isReverse: boolean; isMobileView: boolean }>`
 	border: 1px solid #dfdfdf;
-	margin-top: 80px;
+	margin-top: ${(props) => (props.isMobileView ? "80px" : "0px")};
 	width: 100%;
 	transform: ${(props) => (props.isReverse ? "scaleX(-1)" : "scaleX(1)")};
 `;
@@ -116,7 +117,7 @@ export const Overlay = styled.div<{ shouldShow?: boolean }>`
 	transition: 0.5s ease;
 	background: linear-gradient(#dfdfdf 0%, #fff 100%);
 	width: 100%;
-	padding-right: 1px;
+	padding-right: 2px;
 `;
 
 export const OverlayText = styled.div`
@@ -155,13 +156,14 @@ export const RightColumn = styled.div`
 
 // #Region: Start: Progress bar
 
-export const CircleContainer = styled.div`
+export const CircleContainer = styled.div<{ isMobileView: boolean }>`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100px;
-	height: 100px;
-	position: relative;
+	width: ${(props) => (props.isMobileView ? "100px" : "150px")};
+	height: ${(props) => (props.isMobileView ? "100px" : "150px")};
+	position: ${(props) => (props.isMobileView ? "relative" : "absolute")};
+	${(props) => !props.isMobileView && { bottom: "0px" }}
 `;
 
 export const Circle = styled.svg`
@@ -234,3 +236,19 @@ export const BarLabelRight = styled.span`
 `;
 
 // #Endregion: Progress Line
+
+// #Region: Desktop styles
+
+export const DesktopMainWrapper = styled.div`
+	margin: 0 auto;
+	padding: 10px;
+	font-family: "arial";
+	background-color: #dfdfdf;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	filter: brightness(0.8);
+`;
+
+// #Endregion

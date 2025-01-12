@@ -39,5 +39,5 @@ export default function Page(props: ExercisePageProps) {
 		}
 	});
 
-	return <Exercise {...exerciseData} totalTime={totalTime} passedTime={passedTime} totalExercise={totalExercise} passedExercise={passedExercise} />;
+	return <Exercise {...exerciseData} totalTime={totalTime} passedTime={passedTime} totalExercise={totalExercise} passedExercise={passedExercise} isMobileView={false} />;
 }

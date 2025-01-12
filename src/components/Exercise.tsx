@@ -5,7 +5,7 @@ import { ExerciseData } from "@/types/types";
 import { useRouter } from "next/navigation";
 import ProgressBar from "./ProgressBar";
 import { speak } from "@/utils/utils";
-import { Button, Heading, LeftColumn, MainWrapper, RightColumn, Row, SmallLinkButton, Image, Icon } from "@/styles/style";
+import { Button, Heading, LeftColumn, MainWrapper, RightColumn, Row, SmallLinkButton, Image, Icon, DesktopMainWrapper } from "@/styles/style";
 // import ImageContainer from "./ImageContainer";
 import VideoContainer from "./VideoContainer";
 import ProgressLine from "./ProgressLine";
@@ -85,10 +85,54 @@ export default function Exercise(props: ExerciseData) {
 		}, 1000);
 	};
 
+	if (props.isMobileView) {
+		return (
+			<MainWrapper>
+				<Row>
+					<LeftColumn>
+						<Heading>{props.name}</Heading>
+						<Row>
+							<LeftColumn>
+								{!props.isFirst && (
+									<SmallLinkButton href={(props.exerciseID - 1).toString()}>
+										<Icon src="/svgs/previous.svg" /> Previous
+									</SmallLinkButton>
+								)}
+								{!props.isLast && (
+									<SmallLinkButton href={(props.exerciseID + 1).toString()}>
+										Next <Icon src="/svgs/next.svg" />
+									</SmallLinkButton>
+								)}
+							</LeftColumn>
+							<RightColumn>
+								{isPause ? (
+									<Button onClick={() => resumeTimer()}>
+										<Icon src="/svgs/resume.svg" /> Resume
+									</Button>
+								) : (
+									<Button onClick={() => pauseTimer()} disabled={overlayText.length > 0}>
+										<Icon src="/svgs/pause.svg" />
+										Pause
+									</Button>
+								)}
+							</RightColumn>
+						</Row>
+					</LeftColumn>
+					<RightColumn>
+						<ProgressBar remainingTime={countdown} totalTime={props.time} />
+					</RightColumn>
+				</Row>
+				<ProgressLine totalTime={props.totalTime} passedTime={props.passedTime} totalExercise={props.totalExercise} passedExercise={props.passedExercise} />
+				{/* <ImageContainer imageName={props.image} title={props.name} overlayText={overlayText} isReverse={isReversed} /> */}
+				<VideoContainer videoName={props.video} overlayText={overlayText} isReverse={isReversed} />
+			</MainWrapper>
+		);
+	}
+
 	return (
-		<MainWrapper>
+		<DesktopMainWrapper>
 			<Row>
-				<LeftColumn>
+				<LeftColumn style={{ maxWidth: "300px", position: "relative" }}>
 					<Heading>{props.name}</Heading>
 					<Row>
 						<LeftColumn>
@@ -116,14 +160,13 @@ export default function Exercise(props: ExerciseData) {
 							)}
 						</RightColumn>
 					</Row>
+					<ProgressLine totalTime={props.totalTime} passedTime={props.passedTime} totalExercise={props.totalExercise} passedExercise={props.passedExercise} />
+					<ProgressBar remainingTime={countdown} totalTime={props.time} isMobileView={false} />
 				</LeftColumn>
 				<RightColumn>
-					<ProgressBar remainingTime={countdown} totalTime={props.time} />
+					<VideoContainer videoName={props.video} overlayText={overlayText} isReverse={isReversed} isMobileView={false} />
 				</RightColumn>
 			</Row>
-			<ProgressLine totalTime={props.totalTime} passedTime={props.passedTime} totalExercise={props.totalExercise} passedExercise={props.passedExercise} />
-			{/* <ImageContainer imageName={props.image} title={props.name} overlayText={overlayText} isReverse={isReversed} /> */}
-			<VideoContainer videoName={props.video} overlayText={overlayText} isReverse={isReversed} />
-		</MainWrapper>
+		</DesktopMainWrapper>
 	);
 }
