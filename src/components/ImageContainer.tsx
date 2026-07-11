@@ -9,9 +9,9 @@ interface ImageContainerProps {
 
 export default function ImageContainer(props: ImageContainerProps) {
 	return (
-		<OverlayContainer isMobileView={true}>
-			<Image src={`/gifs/${props.imageName}`} alt={props.title} isReverse={props.isReverse} />
-			<Overlay shouldShow={props.overlayText ? true : false}>
+		<OverlayContainer>
+			<Image src={`/gifs/${props.imageName}`} alt={props.title} $isReverse={props.isReverse} />
+			<Overlay $shouldShow={props.overlayText ? true : false}>
 				<OverlayText>{props.overlayText}</OverlayText>
 			</Overlay>
 		</OverlayContainer>

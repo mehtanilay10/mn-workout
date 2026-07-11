@@ -11,7 +11,6 @@ export interface ExerciseData {
 	passedTime: number;
 	totalExercise: number;
 	passedExercise: number;
-	isMobileView: boolean;
 }
 
 export interface ExerciseParams {

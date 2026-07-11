@@ -14,12 +14,10 @@ export async function generateStaticParams() {
 	}));
 }
 
-// Page component
 export default function Page(props: ExercisePageProps) {
 	const filePath = path.join(process.cwd(), "public", "json", `data.json`);
 	const jsonData: ExerciseData[] = JSON.parse(fs.readFileSync(filePath, "utf8"));
 
-	// Find the page based on the slug
 	const workoutData = jsonData.filter((w) => w.workoutID.toString() === props.params.workoutID);
 	const exerciseData = workoutData.find((e) => e.exerciseID.toString() === props.params.exerciseID);
 
@@ -39,5 +37,13 @@ export default function Page(props: ExercisePageProps) {
 		}
 	});
 
-	return <Exercise {...exerciseData} totalTime={totalTime} passedTime={passedTime} totalExercise={totalExercise} passedExercise={passedExercise} />;
+	return (
+		<Exercise
+			{...exerciseData}
+			totalTime={totalTime}
+			passedTime={passedTime}
+			totalExercise={totalExercise}
+			passedExercise={passedExercise}
+		/>
+	);
 }

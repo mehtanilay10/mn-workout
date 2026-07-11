@@ -1,24 +1,23 @@
 "use client";
 
-import { LinkButton, MainWrapper } from "@/styles/style";
+import { HomeWrapper, HomeTitle, HomeSubtitle, WorkoutGrid, LinkButton, WorkoutNumber } from "@/styles/style";
 
 interface ExerciseListProps {
 	workoutIDs: string[];
 }
 
 export const ExerciseList = (props: ExerciseListProps) => (
-	<MainWrapper>
-		{props.workoutIDs.map((x) => (
-			<LinkButton key={x} href={`desktop/workout/${x}/exercise/1`}>
-				Workout {x} <span style={{ fontSize: "14px" }}>(Desktop view)</span>
-			</LinkButton>
-		))}
-		<br />
-		<br />
-		{props.workoutIDs.map((x) => (
-			<LinkButton key={x} href={`mobile/workout/${x}/exercise/1`}>
-				Workout {x} <span style={{ fontSize: "14px" }}>(Mobile view)</span>
-			</LinkButton>
-		))}
-	</MainWrapper>
+	<HomeWrapper>
+		<HomeTitle>MN Workout</HomeTitle>
+		<HomeSubtitle>Choose a workout to begin</HomeSubtitle>
+		<WorkoutGrid>
+			{props.workoutIDs.map((x) => (
+				<LinkButton key={x} href={`/workout/${x}/exercise/1`}>
+					<WorkoutNumber>{x}</WorkoutNumber>
+					Workout {x}
+				</LinkButton>
+			))}
+		</WorkoutGrid>
+	</HomeWrapper>
 );
+
